@@ -118,6 +118,8 @@ import { sampleCourses } from "./data";
 import CourseCard from "./components/CourseCard";
 import "./index.css";
 
+
+
 export default function App() {
   const [courses, setCourses] = useState(sampleCourses);
 
@@ -144,7 +146,15 @@ export default function App() {
         - course={course}
         - index={idx}
         - onMutateCourse={mutateCourseByIndex}
-  */}
+        */}
+        {courses.map((course, idx) => (
+          <CourseCard
+            key={course.id}
+            course={course}
+            index={idx}
+            onMutateCourse={mutateCourseByIndex}
+          />
+        ))}
       </section>
     </main>
   );

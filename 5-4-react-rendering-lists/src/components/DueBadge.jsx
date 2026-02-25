@@ -1,4 +1,5 @@
 // src/components/DueBadge.jsx
+// src/components/DueBadge.jsx
 function daysUntil(dateStr) {
   const today = new Date();
   const due = new Date(dateStr + "T00:00:00");
@@ -26,6 +27,16 @@ export default function DueBadge({ dueDate }) {
      ========================================================= */
 
   // TODO (TASK 3): implement DueBadge label logic
+  const d = daysUntil(dueDate);
+  let label = "";
 
-  return <span className="badge">Label here</span>;
+  if (d < 0) {
+    label = "Overdue";
+  } else if (d === 0) {
+    label = "Due today";
+  } else {
+    label = `Due in ${d} days`;
+  }
+
+  return <span className="badge">{label}</span>;
 }
